@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "npm run build",
     "build": "tsc",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "bin": {
     "dbtrek": "./dist/index.js"

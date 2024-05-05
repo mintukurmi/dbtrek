@@ -1,0 +1,16 @@
+
+# node modules
+node_modules
+
+# build files
+dist
+migrations
+
+# envs
+.env
+
+# sqlite test db
+*.db
+
+# tests
+test
