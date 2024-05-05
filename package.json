@@ -1,6 +1,6 @@
 {
   "name": "dbtrek",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DBTrek is a light-weight cli based database migration tool, written on top of Kysely.",
   "main": "index.js",
   "types": "index.d.ts",
