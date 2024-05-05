@@ -4,7 +4,14 @@ DBTrek is a light-weight and easy-to-use CLI based database migration tool writt
 
 [Kysley](https://kysely.dev/) simplifies SQL query building in TypeScript, offering type safety and ease of use. DBTrek leverages Kysely, facilitating effortless migration creation and synchronization with databases through intuitive CLI commands. Under the hood, DBTrek uses Kysely migrator to run all the migration.
 
-## Usage Commands
+## Contents
+
+- [Usage Commands](https://github.com/mintukurmi/dbtrek#usage-commands)
+- [Installation & Setup](https://github.com/mintukurmi/dbtrek#setup)
+- [How to use?](https://github.com/mintukurmi/dbtrek#how-to-use)
+- [Migration Examples](https://github.com/mintukurmi/dbtrek#examples)
+
+## [Usage Commands](https://github.com/mintukurmi/dbtrek#usage-commands)
 
 ```
 Usage: dbtrek <command> [options]
@@ -25,7 +32,22 @@ Usage: dbtrek <command> [options]
     --version, -v            Displays the version
 ```
 
-## How to use?
+## [Installation & Setup](https://github.com/mintukurmi/dbtrek#setup)
+
+- To install the package, run `npm i dbtrek`.
+- A very minimal setup is required for this package to work. Add the proper environment variables into your `.env` file, that's it.
+
+```
+  # a working .env file, looks like
+  SQLITE_FILENAME="test.db" # (Required only in case of sqlite)
+  DATABASE_HOST= "localhost"
+  DATABASE_PORT = "5432"
+  DATABASE_NAME = "test"
+  DATABASE_USER= "postgres"
+  DATABASE_PASSWORD = "1234"
+```
+
+## [How to use?](https://github.com/mintukurmi/dbtrek#how-to-use)
 
 To add a new migration
 
@@ -38,7 +60,7 @@ To run database migrations
 Note that:
 
 - Here `--path=<path>` is the path from the context of the current folder.
-- By default `direction` is set to `--latest`, alternatively you can pass others like `--latest`, `--up`, `--down`
+- By default `direction` is set to `--latest`, alternatively you can pass others like `--latest`, `--up`, `--down`.
 
 Possible values for directions are:
 
@@ -47,3 +69,28 @@ Possible values for directions are:
 - `--down`: Migrate one step down
 - `--migrateTo=<migration_name>`: Migrates up/down upto the provided -migration.
 - `--noMigrations`: Undo all the migration that has run so far
+
+## [Migration Examples](https://github.com/mintukurmi/dbtrek#examples)
+
+Note that, migrations are written using [Kysley](https://kysely.dev/). An example migration file looks like.
+
+```
+    import { Kysely } from "kysely";
+
+    export async function up(db: Kysely<any>): Promise<void> {
+      await db.schema
+        .createTable("ClinifyDB.pet")
+        .addColumn("id", "serial", (col) => col.primaryKey())
+        .addColumn("name", "varchar", (col) => col.notNull().unique())
+        .addColumn("species", "varchar", (col) => col.notNull())
+        .execute();
+    }
+
+    export async function down(db: Kysely<any>): Promise<void> {
+      await db.schema.dropTable("ClinifyDB.pet").execute();
+    }
+```
+
+Please refer to [Kysley Docs](https://kysely.dev/docs/migrations), incase you need more help with writing migrations using Kysely.
+
+Happy coding !! :-)

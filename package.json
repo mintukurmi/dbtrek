@@ -2,8 +2,8 @@
   "name": "dbtrek",
   "version": "0.1.1",
   "description": "DBTrek is a light-weight cli based database migration tool, written on top of Kysely.",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/mintukurmi/dbtrek",
   "type": "commonjs",
   "scripts": {
@@ -24,20 +24,20 @@
   "author": "Mintu Moni Kurmi <mintukurmi1@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.9",
     "@types/jest": "^29.5.12",
-    "@types/minimist": "^1.2.5",
-    "@types/node": "^20.12.2",
-    "@types/pg": "^8.11.4",
-    "ts-jest": "^29.1.2",
-    "typescript": "^5.4.3"
+    "ts-jest": "^29.1.2"
   },
   "dependencies": {
+    "typescript": "^5.4.3",
     "better-sqlite3": "^9.4.3",
     "dotenv": "^16.4.5",
     "kysely": "^0.27.3",
     "minimist": "^1.2.8",
     "mysql2": "^3.9.3",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/node": "^20.12.2",
+    "@types/pg": "^8.11.4",
+    "@types/minimist": "^1.2.5"
   }
 }
