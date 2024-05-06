@@ -79,7 +79,7 @@ Note that, migrations are written using [Kysley](https://kysely.dev/). An exampl
 
     export async function up(db: Kysely<any>): Promise<void> {
       await db.schema
-        .createTable("ClinifyDB.pet")
+        .createTable("TestDB.pet")
         .addColumn("id", "serial", (col) => col.primaryKey())
         .addColumn("name", "varchar", (col) => col.notNull().unique())
         .addColumn("species", "varchar", (col) => col.notNull())
@@ -87,7 +87,7 @@ Note that, migrations are written using [Kysley](https://kysely.dev/). An exampl
     }
 
     export async function down(db: Kysely<any>): Promise<void> {
-      await db.schema.dropTable("ClinifyDB.pet").execute();
+      await db.schema.dropTable("TestDB.pet").execute();
     }
 ```
 
