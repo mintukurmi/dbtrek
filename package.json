@@ -19,7 +19,12 @@
     "database",
     "migration",
     "kysely",
-    "cli"
+    "cli",
+    "tool"
+    "migrator",
+    "postgres",
+    "mysql",
+    "sqlite"
   ],
   "author": "Mintu Moni Kurmi <mintukurmi1@gmail.com>",
   "license": "MIT",
