@@ -20,7 +20,7 @@
     "migration",
     "kysely",
     "cli",
-    "tool"
+    "tool",
     "migrator",
     "postgres",
     "mysql",
