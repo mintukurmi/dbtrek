@@ -69,7 +69,6 @@ export async function run(options: CliOptions) {
   else if (cmd.includes("migrate")) {
     // validates the options
     const validatedOptions = validateOptions(options)
-    console.log({ validatedOptions })
     const direction = validatedOptions.direction ?? "latest"
     const defaultPort = getDefaultPort(validatedOptions.dialect as Dialects)
 
